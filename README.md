@@ -1,36 +1,42 @@
-# video-game-rating-predictor
+# Video Game Rating Predictor
 
-In this project I try to predict a video game's **critic score** (out of 100, from Metacritic) using basic information about the game: its platform, genre, age rating, release year, sales and user reviews.
+This project is about using machine learning to predict a video game's **critic score** (out of 100) on Metacritic.
 
-I built it to practise the full machine learning process from start to finish: loading data, cleaning it, exploring it, training models and checking how well they work.
+I use information about each game, such as its platform, genre, age rating, release year, sales and user scores to try and predict its critic score.
 
-## My approach
+I built this project to learn how machine learning works, from preparing the data to training models and checking their results.
 
-I kept the code as simple as possible on purpose. Every step follows the basic examples in the official [pandas](https://pandas.pydata.org/docs/) and [scikit-learn](https://scikit-learn.org/stable/) documentation, and the notebook links to each page I used. My goal was to understand and explain each step clearly, rather than build the most accurate model possible.
+## My Approach
 
-Each section of the notebook starts with a short paragraph explaining what I did and why, so you can follow it without being a data science expert.
+I wanted to keep the project simple and easy to understand. I followed examples from the official [pandas](https://pandas.pydata.org/docs/) and [scikit-learn](https://scikit-learn.org/stable/) documentation to help me with each step.
 
-## What the notebook does
+I also added short explanations throughout the notebook to explain what I was doing and why.
 
-1. **Loads the data** and takes a quick look at it: the first rows, column types and missing values.
-2. **Cleans the data.** Some user scores say `"tbd"` instead of a number, so I turn those into missing values. Then I remove any rows that still have missing values.
-3. **Explores the data** with three charts: how critic scores are spread out, the average score per genre, and user score vs critic score.
-4. **Prepares the features.** Text columns like `Platform` and `Genre` become 0/1 columns, and the data is split into 80% for training and 20% for testing.
-5. **Trains two models.** I compare a simple one (Linear Regression) with a more complex one (Random Forest) to see if the extra complexity is worth it.
-6. **Checks the results** using the scores below, a predicted vs actual chart, and a chart of which features matter most.
+## What the Notebook Does
+
+1. **Loads the data:** I load the dataset and look at the first few rows, column types and missing values.
+2. **Cleans the data:** Some user scores are marked as `"tbd"` instead of having a number. I replace these with missing values and remove rows that still have missing information.
+3. **Explores the data:** I create three charts to look at critic scores, compare average scores between genres and see how user scores compare with critic scores.
+4. **Prepares the data:** I convert text columns such as `Platform` and `Genre` into numerical values so the models can use them. I then split the data into 80% for training and 20% for testing.
+5. **Trains two models:** I use Linear Regression and Random Forest to see which one makes better predictions.
+6. **Tests the models:** I compare their results using MAE and R² scores. I also create charts to compare predicted scores with actual scores and show which features have the biggest impact.
 
 ## Results
 
-- **MAE (mean absolute error):** on average, how many points off a prediction is.
-- **R²:** 1 means perfect predictions, and 0 means no better than always guessing the average score. 
+I use two main measurements to check how well the models perform:
+
+- **MAE (Mean Absolute Error):** Shows how far the predictions are from the actual critic scores on average. A lower score is better.
+- **R²:** Shows how well the model can predict the scores. A value closer to 1 means the model is doing a better job.
 
 ## Dataset
 
-I used the [Video Game Sales with Ratings](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) dataset from Kaggle. It combines sales figures from VGChartz with critic and user scores from Metacritic, for games released up to December 2016.
+I used the [Video Game Sales with Ratings](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) dataset from Kaggle.
 
-To run the notebook, download the CSV and save it as `data/videogamesales.csv`.
+It contains video game sales figures from VGChartz, along with critic and user scores from Metacritic. The dataset includes games released up to December 2016.
 
-## How to run it
+To run the notebook, download the CSV file and save it inside a folder called `data` as `videogamesales.csv`.
+
+## How to Run It
 
 ```bash
 git clone https://github.com/<your-username>/video-game-rating-predictor.git
@@ -39,17 +45,24 @@ pip install -r requirements.txt
 jupyter notebook video_game_rating_predictor.ipynb
 ```
 
-Then run all the cells from top to bottom.
+Once the notebook opens, run all the cells from top to bottom.
 
-## Tech used
+## Technologies Used
 
-Python, pandas, scikit-learn, matplotlib, Jupyter
+- Python
+- pandas
+- scikit-learn
+- matplotlib
+- Jupyter Notebook
 
-## Limitations and next steps
+## Limitations and Future Improvements
 
-The biggest limitation is missing data. About half the games have no critic score, so many rows were removed. The model also needs user reviews, which means it can't predict a score for a game that hasn't been released yet.
+One of the main problems with the dataset is that many games are missing critic scores. Around half of the games don't have a critic score, so I had to remove a lot of rows before training the models.
 
-If I took this further, I would:
-- fill in missing values instead of removing rows
-- tune the Random Forest's settings
-- try predicting scores without using user reviews
+Another limitation is that the model uses user scores to make predictions. This means it cannot predict the critic score of a game before people have played and reviewed it.
+
+If I continue working on this project, I would like to:
+
+- Find better ways to deal with missing data instead of removing so many rows.
+- Try different Random Forest settings to improve its predictions.
+- Train another model without using user scores, so it can predict critic scores using information available before release.</

@@ -39,7 +39,7 @@ To run the notebook, download the CSV file and save it inside a folder called `d
 ## How to Run It
 
 ```bash
-git clone https://github.com/<your-username>/video-game-rating-predictor.git
+git clone https://github.com/<adj06>/video-game-rating-predictor.git
 cd video-game-rating-predictor
 pip install -r requirements.txt
 jupyter notebook video_game_rating_predictor.ipynb
@@ -65,4 +65,4 @@ If I continue working on this project, I would like to:
 
 - Find better ways to deal with missing data instead of removing so many rows.
 - Try different Random Forest settings to improve its predictions.
-- Train another model without using user scores, so it can predict critic scores using information available before release.</
+- Train another model without using user scores, so it can predict critic scores using information available before release.

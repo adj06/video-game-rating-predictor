@@ -39,7 +39,7 @@ To run the notebook, download the CSV file and save it inside a folder called `d
 ## How to Run It
 
 ```bash
-git clone https://github.com/<adj06>/video-game-rating-predictor.git
+git clone https://github.com/adj06/video-game-rating-predictor.git
 cd video-game-rating-predictor
 pip install -r requirements.txt
 jupyter notebook video_game_rating_predictor.ipynb
